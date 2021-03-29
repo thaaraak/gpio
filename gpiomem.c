@@ -29,6 +29,7 @@ int main(int argc, char** argv)
 {
     int pin = 18;
 
+
     int memfd = open("/dev/gpiomem", O_RDWR | O_SYNC);
     uint32_t * map = (uint32_t *)mmap(
                         NULL,
