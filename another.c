@@ -1,5 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <bcm2835.h>
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <string.h>
+#include <unistd.h>
+#include <time.h>
 
  
 // Blinks on RPi Plug P1 pin 11 (which is GPIO pin 17)
