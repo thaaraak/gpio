@@ -1,0 +1,12 @@
+make all --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/xenir/gpio'
+echo [CC] main.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   main.c -o main.o
+echo [link]
+cc -o main main.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt /home/xenir/bcm/bcm2835-1.68/src/libbcm2835.a
+echo [CC] main2.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   main2.c -o main2.o
+echo [link]
+cc -o main2 main.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt /home/xenir/bcm/bcm2835-1.68/src/libbcm2835.a
+make: Leaving directory '/home/xenir/gpio'
+ 

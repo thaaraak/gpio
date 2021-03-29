@@ -1,0 +1,14 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/xenir/gpio",
+            "binaryPath": "/home/xenir/gpio/main",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "/home/xenir/gpio",
+            "binaryPath": "/home/xenir/gpio/main2",
+            "binaryArgs": []
+        }
+    ]
+}
