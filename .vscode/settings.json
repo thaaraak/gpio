@@ -10,5 +10,9 @@
             "binaryPath": "/home/xenir/gpio/main2",
             "binaryArgs": []
         }
-    ]
+    ],
+    "files.associations": {
+        "stdio.h": "c",
+        "types.h": "c"
+    }
 }
