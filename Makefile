@@ -40,7 +40,7 @@ LIBS = /home/xenir/bcm/bcm2835-1.68/src/libbcm2835.a
 # Should not alter anything below this line
 ###############################################################################
 
-SRC	=	main.c main2.c
+SRC	=	main.c main2.c gpiomem.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -54,7 +54,11 @@ main:	main.o
 
 main2:	main2.o
 	$Q echo [link]
-	$Q $(CC) -o $@ main.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$Q $(CC) -o $@ main2.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+
+gpiomem:	gpiomem.o
+	$Q echo [link]
+	$Q $(CC) -o $@ gpiomem.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 
 .c.o:
 	$Q echo [CC] $<

@@ -9,10 +9,16 @@
             "cwd": "/home/xenir/gpio",
             "binaryPath": "/home/xenir/gpio/main2",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/home/xenir/gpio",
+            "binaryPath": "/home/xenir/gpio/gpiomem",
+            "binaryArgs": []
         }
     ],
     "files.associations": {
         "stdio.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "stddef.h": "c"
     }
 }

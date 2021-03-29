@@ -1,26 +1,27 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 4.3
+make: *** No rule to make target 'gpiomem.o', needed by 'gpiomem'.  Stop.
  
+# GNU Make 4.3
 # Built for aarch64-unknown-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Mar 28 15:11:01 2021
+# Make data base, printed on Mon Mar 29 14:46:28 2021
 
 # Variables
 
 # makefile (from 'Makefile', line 45)
 OBJ = $(SRC:.c=.o)
 # makefile (from 'Makefile', line 43)
-SRC = main.c main2.c
+SRC = main.c main2.c gpiomem.c
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c31cd013-5f72-4ce1-a47b-2989aa835de8.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4811e287-921a-4352-8867-ea94b0c33632.sock
 # environment
 WINDOWPATH = 2
 # makefile (from 'Makefile', line 38)
@@ -42,7 +43,7 @@ PWD = /home/xenir/gpio
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-OLDPWD = /home/xenir
+OLDPWD = /home/xenir/gpio/.vscode
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -92,7 +93,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 6747
+VSCODE_PID = 28464
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -238,9 +239,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 45826, inode 1168886): 10 files, no impossibilities.
+# . (device 45826, inode 1168886): 12 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -252,7 +253,7 @@ GDMSESSION = ubuntu
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 60):
+#  recipe to execute (from 'Makefile', line 64):
 	$Q echo [CC] $<
 	$Q $(CC) -c $(CFLAGS) $< -o $@
 
@@ -260,13 +261,13 @@ depend:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 72):
+#  recipe to execute (from 'Makefile', line 76):
 	makedepend -Y $(SRC)
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-03-28 15:10:55.655585257
+#  Last modified 2021-03-29 14:46:25.901942211
 #  File has been updated.
 #  Successfully updated.
 
@@ -274,11 +275,18 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 64):
+#  recipe to execute (from 'Makefile', line 68):
 	$Q echo "[Clean]"
 	$Q rm -f $(OBJ) *~ core tags $(BINS)
 
- 
+gpiomem: gpiomem.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 60):
+	$Q echo [link]
+	$Q $(CC) -o $@ gpiomem.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+
 # Not a target:
 main2.c:
 #  Implicit rule search has not been done.
@@ -287,17 +295,21 @@ main2.c:
 
 # Not a target:
 .DEFAULT:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-all: main main2
+all: main main2 gpiomem
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
+#  File has not been updated.
+
+# Not a target:
+gpiomem.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
 
 # Not a target:
 main.c:
@@ -307,7 +319,7 @@ main.c:
 
 main: main.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-03-28 15:06:23.411689281
+#  Last modified 2021-03-29 07:33:22.883064966
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 52):
@@ -317,48 +329,54 @@ main: main.o
 # Not a target:
 main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-03-28 15:06:23.239691924
+#  Last modified 2021-03-29 07:33:22.695068527
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 main2.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-03-28 15:06:23.727684425
+#  Last modified 2021-03-29 07:33:23.051061784
 #  File has been updated.
 #  Successfully updated.
 
 main2: main2.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-03-28 15:08:17.185956191
+#  Last modified 2021-03-29 07:33:23.263057769
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 56):
 	$Q echo [link]
-	$Q $(CC) -o $@ main.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$Q $(CC) -o $@ main2.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 
-tags: main.c main2.c
+tags: main.c main2.c gpiomem.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 68):
+#  recipe to execute (from 'Makefile', line 72):
 	$Q echo [ctags]
 	$Q ctags $(SRC)
 
+# Not a target:
+gpiomem.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=14/1024=1%, Rehash=0, Collisions=0/33=0%
+# Load=17/1024=2%, Rehash=0, Collisions=0/40=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 19 / storage = 141 B / avg = 7 B
-# current buf: size = 8162 B / used = 141 B / count = 19 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 23 / storage = 174 B / avg = 7 B
+# current buf: size = 8162 B / used = 174 B / count = 23 / avg = 7 B
 
-# strcache performance: lookups = 39 / hit rate = 51%
+# strcache performance: lookups = 46 / hit rate = 50%
 # hash-table stats:
-# Load=19/8192=0%, Rehash=0, Collisions=0/39=0%
-# Finished Make data base on Sun Mar 28 15:11:01 2021
+# Load=23/8192=0%, Rehash=0, Collisions=0/46=0%
+# Finished Make data base on Mon Mar 29 14:46:28 2021
 
  
