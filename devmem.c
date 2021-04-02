@@ -30,17 +30,18 @@ int main(int argc, char** argv)
     int pin = 18;
 
 
-    int memfd = open("/dev/gpiomem", O_RDWR | O_SYNC);
+    int memfd = open("/dev/mem", O_RDWR | O_SYNC);
     uint32_t * map = (uint32_t *)mmap(
                         NULL,
                         4*1024,
                         (PROT_READ | PROT_WRITE),
                         MAP_SHARED, 
                         memfd, 
-                        0x200000);
+                        0xfe200000);
     if (map == MAP_FAILED)
         printf("bcm2835_init: mmap failed: %s\n", strerror(errno));    
     close(memfd);
+    
 
     volatile uint32_t* paddr = map + GPFSEL1;
 

@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'gpiomem.o', needed by 'gpiomem'.  Stop.
- 
 # GNU Make 4.3
 # Built for aarch64-unknown-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,14 +6,14 @@ make: *** No rule to make target 'gpiomem.o', needed by 'gpiomem'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Mar 29 14:46:28 2021
+# Make data base, printed on Thu Apr  1 10:26:58 2021
 
 # Variables
 
 # makefile (from 'Makefile', line 45)
 OBJ = $(SRC:.c=.o)
 # makefile (from 'Makefile', line 43)
-SRC = main.c main2.c gpiomem.c
+SRC = main.c main2.c gpiomem.c devmem.c
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -239,9 +237,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 45826, inode 1168886): 12 files, no impossibilities.
+# . (device 45826, inode 1168886): 16 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -253,7 +251,7 @@ GDMSESSION = ubuntu
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 64):
+#  recipe to execute (from 'Makefile', line 70):
 	$Q echo [CC] $<
 	$Q $(CC) -c $(CFLAGS) $< -o $@
 
@@ -261,13 +259,19 @@ depend:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 76):
+#  recipe to execute (from 'Makefile', line 82):
 	makedepend -Y $(SRC)
+
+# Not a target:
+devmem.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-03-29 14:46:25.901942211
+#  Last modified 2021-04-01 10:26:49.810036225
 #  File has been updated.
 #  Successfully updated.
 
@@ -275,17 +279,27 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 68):
+#  recipe to execute (from 'Makefile', line 74):
 	$Q echo "[Clean]"
 	$Q rm -f $(OBJ) *~ core tags $(BINS)
 
 gpiomem: gpiomem.o
 #  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
+ 
+make: *** No rule to make target 'devmem.o', needed by 'devmem'.  Stop.
+ 
+#  Last modified 2021-04-01 10:26:21.418620092
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 60):
 	$Q echo [link]
 	$Q $(CC) -o $@ gpiomem.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+
+# Not a target:
+devmem.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 main2.c:
@@ -299,7 +313,7 @@ main2.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: main main2 gpiomem
+all: main main2 gpiomem devmem
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -308,8 +322,9 @@ all: main main2 gpiomem
 # Not a target:
 gpiomem.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2021-04-01 10:26:21.262623301
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 main.c:
@@ -319,7 +334,7 @@ main.c:
 
 main: main.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-03-29 07:33:22.883064966
+#  Last modified 2021-04-01 10:26:20.726634326
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 52):
@@ -329,31 +344,42 @@ main: main.o
 # Not a target:
 main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-03-29 07:33:22.695068527
+#  Last modified 2021-04-01 10:26:20.522638522
 #  File has been updated.
 #  Successfully updated.
+
+devmem: devmem.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 64):
+	$Q echo [link]
+	$Q $(CC) -o $@ devmem.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$Q sudo chown root devmem
+	$Q sudo chmod 4755 devmem
+	
 
 # Not a target:
 main2.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-03-29 07:33:23.051061784
+#  Last modified 2021-04-01 10:26:20.906630623
 #  File has been updated.
 #  Successfully updated.
 
 main2: main2.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-03-29 07:33:23.263057769
+#  Last modified 2021-04-01 10:26:21.050627661
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 56):
 	$Q echo [link]
 	$Q $(CC) -o $@ main2.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 
-tags: main.c main2.c gpiomem.c
+tags: main.c main2.c gpiomem.c devmem.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 72):
+#  recipe to execute (from 'Makefile', line 78):
 	$Q echo [ctags]
 	$Q ctags $(SRC)
 
@@ -364,19 +390,19 @@ gpiomem.c:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=17/1024=2%, Rehash=0, Collisions=0/40=0%
+# Load=20/1024=2%, Rehash=0, Collisions=1/47=2%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 174 B / avg = 7 B
-# current buf: size = 8162 B / used = 174 B / count = 23 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 210 B / avg = 7 B
+# current buf: size = 8162 B / used = 210 B / count = 27 / avg = 7 B
 
-# strcache performance: lookups = 46 / hit rate = 50%
+# strcache performance: lookups = 55 / hit rate = 50%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=0/46=0%
-# Finished Make data base on Mon Mar 29 14:46:28 2021
+# Load=27/8192=0%, Rehash=0, Collisions=0/55=0%
+# Finished Make data base on Thu Apr  1 10:26:58 2021
 
  
