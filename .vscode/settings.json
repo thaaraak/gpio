@@ -19,6 +19,11 @@
             "cwd": "/home/xenir/gpio",
             "binaryPath": "/home/xenir/gpio/devmem",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/home/xenir/gpio",
+            "binaryPath": "/home/xenir/gpio/spi",
+            "binaryArgs": []
         }
     ],
     "files.associations": {

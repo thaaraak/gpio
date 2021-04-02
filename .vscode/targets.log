@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'spi.o', needed by 'spi'.  Stop.
+ 
 # GNU Make 4.3
 # Built for aarch64-unknown-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,14 +8,14 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Apr  1 10:26:58 2021
+# Make data base, printed on Fri Apr  2 14:00:43 2021
 
 # Variables
 
 # makefile (from 'Makefile', line 45)
 OBJ = $(SRC:.c=.o)
 # makefile (from 'Makefile', line 43)
-SRC = main.c main2.c gpiomem.c devmem.c
+SRC = main.c main2.c gpiomem.c devmem.c spi.c
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -22,8 +24,6 @@ GJS_DEBUG_OUTPUT = stderr
 VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4811e287-921a-4352-8867-ea94b0c33632.sock
 # environment
 WINDOWPATH = 2
-# makefile (from 'Makefile', line 38)
-LIBS = /home/xenir/bcm/bcm2835-1.68/src/libbcm2835.a
 # default
 MAKE_COMMAND := make
 # environment
@@ -139,7 +139,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # makefile (from 'Makefile', line 36)
-LDLIBS = -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt
+LDLIBS = -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835
 # makefile (from 'Makefile', line 47)
 BINS = $(SRC:.c=)
 # environment
@@ -229,7 +229,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=109/1024=11%, Rehash=0, Collisions=12/143=8%
+# Load=108/1024=11%, Rehash=0, Collisions=11/142=8%
 
 # Pattern-specific Variable Values
 
@@ -237,9 +237,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 45826, inode 1168886): 16 files, no impossibilities.
+# . (device 45826, inode 1168886): 19 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -251,7 +251,7 @@ GDMSESSION = ubuntu
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 70):
+#  recipe to execute (from 'Makefile', line 76):
 	$Q echo [CC] $<
 	$Q $(CC) -c $(CFLAGS) $< -o $@
 
@@ -259,19 +259,30 @@ depend:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 88):
 	makedepend -Y $(SRC)
+
+spi: spi.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$Q echo [link]
+	$Q $(CC) -o $@ spi.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$Q sudo chown root spi
+	$Q sudo chmod 4755 spi
 
 # Not a target:
 devmem.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2021-04-02 07:30:07.879943854
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-01 10:26:49.810036225
+#  Last modified 2021-04-02 14:00:35.977884152
 #  File has been updated.
 #  Successfully updated.
 
@@ -279,16 +290,13 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 74):
+#  recipe to execute (from 'Makefile', line 80):
 	$Q echo "[Clean]"
 	$Q rm -f $(OBJ) *~ core tags $(BINS)
 
 gpiomem: gpiomem.o
 #  Implicit rule search has not been done.
- 
-make: *** No rule to make target 'devmem.o', needed by 'devmem'.  Stop.
- 
-#  Last modified 2021-04-01 10:26:21.418620092
+#  Last modified 2021-04-02 07:30:07.579954098
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 60):
@@ -313,7 +321,7 @@ main2.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: main main2 gpiomem devmem
+all: main main2 gpiomem devmem spi
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -322,7 +330,7 @@ all: main main2 gpiomem devmem
 # Not a target:
 gpiomem.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-01 10:26:21.262623301
+#  Last modified 2021-04-02 07:30:07.311963249
 #  File has been updated.
 #  Successfully updated.
 
@@ -334,7 +342,7 @@ main.c:
 
 main: main.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-01 10:26:20.726634326
+#  Last modified 2021-04-02 07:30:06.615987021
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 52):
@@ -344,42 +352,55 @@ main: main.o
 # Not a target:
 main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-01 10:26:20.522638522
+#  Last modified 2021-04-02 07:30:06.455992487
 #  File has been updated.
 #  Successfully updated.
 
+ 
 devmem: devmem.o
 #  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2021-04-02 07:30:08.083936889
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 64):
 	$Q echo [link]
 	$Q $(CC) -o $@ devmem.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 	$Q sudo chown root devmem
 	$Q sudo chmod 4755 devmem
-	
 
 # Not a target:
 main2.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-01 10:26:20.906630623
+#  Last modified 2021-04-02 07:30:06.835979505
 #  File has been updated.
 #  Successfully updated.
 
 main2: main2.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-01 10:26:21.050627661
+#  Last modified 2021-04-02 07:30:07.047972263
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 56):
 	$Q echo [link]
 	$Q $(CC) -o $@ main2.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 
-tags: main.c main2.c gpiomem.c devmem.c
+# Not a target:
+spi.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+spi.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 78):
+
+tags: main.c main2.c gpiomem.c devmem.c spi.c
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 84):
 	$Q echo [ctags]
 	$Q ctags $(SRC)
 
@@ -390,19 +411,19 @@ gpiomem.c:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=20/1024=2%, Rehash=0, Collisions=1/47=2%
+# Load=23/1024=2%, Rehash=0, Collisions=1/54=2%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 27 / storage = 210 B / avg = 7 B
-# current buf: size = 8162 B / used = 210 B / count = 27 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 30 / storage = 226 B / avg = 7 B
+# current buf: size = 8162 B / used = 226 B / count = 30 / avg = 7 B
 
-# strcache performance: lookups = 55 / hit rate = 50%
+# strcache performance: lookups = 63 / hit rate = 52%
 # hash-table stats:
-# Load=27/8192=0%, Rehash=0, Collisions=0/55=0%
-# Finished Make data base on Thu Apr  1 10:26:58 2021
+# Load=30/8192=0%, Rehash=0, Collisions=0/63=0%
+# Finished Make data base on Fri Apr  2 14:00:43 2021
 
  

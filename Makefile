@@ -33,14 +33,14 @@ INCLUDE	= -I/usr/local/include
 CFLAGS	= $(DEBUG) -Wall $(INCLUDE) -Winline -pipe $(EXTRA_CFLAGS) 
 
 LDFLAGS	= -L/usr/local/lib
-LDLIBS    = -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt
+LDLIBS    = -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835
 
-LIBS = /home/xenir/bcm/bcm2835-1.68/src/libbcm2835.a
+#LIBS = /home/xenir/bcm/bcm2835-1.68/src/libbcm2835.a
 
 # Should not alter anything below this line
 ###############################################################################
 
-SRC	=	main.c main2.c gpiomem.c devmem.c
+SRC	=	main.c main2.c gpiomem.c devmem.c spi.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -65,7 +65,13 @@ devmem:	devmem.o
 	$Q $(CC) -o $@ devmem.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 	$Q sudo chown root devmem
 	$Q sudo chmod 4755 devmem
-	
+
+spi: spi.o
+	$Q echo [link]
+	$Q $(CC) -o $@ spi.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$Q sudo chown root spi
+	$Q sudo chmod 4755 spi
+
 .c.o:
 	$Q echo [CC] $<
 	$Q $(CC) -c $(CFLAGS) $< -o $@
