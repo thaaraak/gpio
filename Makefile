@@ -40,7 +40,7 @@ LDLIBS    = -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835
 # Should not alter anything below this line
 ###############################################################################
 
-SRC	=	main.c main2.c gpiomem.c devmem.c spi.c
+SRC	=	main.c main2.c gpiomem.c devmem.c spi.c i2c.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -71,6 +71,12 @@ spi: spi.o
 	$Q $(CC) -o $@ spi.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 	$Q sudo chown root spi
 	$Q sudo chmod 4755 spi
+
+i2c: i2c.o
+	$Q echo [link]
+	$Q $(CC) -o $@ i2c.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$Q sudo chown root i2c
+	$Q sudo chmod 4755 i2c
 
 .c.o:
 	$Q echo [CC] $<

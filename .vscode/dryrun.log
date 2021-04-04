@@ -1,11 +1,11 @@
 make all --dry-run --keep-going --print-directory
 make: Entering directory '/home/xenir/gpio'
-echo [CC] spi.c
-cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   spi.c -o spi.o
+echo [CC] i2c.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   i2c.c -o i2c.o
  
 echo [link]
-cc -o spi spi.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
-sudo chown root spi
-sudo chmod 4755 spi
+cc -o i2c i2c.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
+sudo chown root i2c
+sudo chmod 4755 i2c
 make: Leaving directory '/home/xenir/gpio'
  
