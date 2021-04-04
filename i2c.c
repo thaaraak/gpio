@@ -140,9 +140,11 @@ int main(int argc, char **argv) {
     }
  
     bcm2835_i2c_setSlaveAddress( 0x48 );
+    bcm2835_i2c_set_baudrate(800000);
 
-    for (;;)
+    for ( int i = 0 ; i < 5000 ; i++)
 
+//        readADC(0);
         printf( "Res: %8d\n", readADC(0) );
 
     bcm2835_i2c_end();   
@@ -166,7 +168,7 @@ int16_t readADC(uint8_t channel)
       ADS1X15_REG_CONFIG_MODE_SINGLE;   // Single-shot mode (default)
 
   adsGain_t m_gain = GAIN_TWOTHIRDS; /* +/- 6.144V range (limited to VDD +0.3V max!) */
-  uint16_t m_dataRate = RATE_ADS1115_128SPS;
+  uint16_t m_dataRate = RATE_ADS1115_860SPS;
 
   // Set PGA/voltage range
   config |= m_gain;
