@@ -40,7 +40,7 @@ LDLIBS    = -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835
 # Should not alter anything below this line
 ###############################################################################
 
-SRC	=	main.c main2.c gpiomem.c devmem.c spi.c i2c.c
+SRC	=	main.c main2.c gpiomem.c devmem.c spi.c i2c.c button.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -65,6 +65,12 @@ devmem:	devmem.o
 	$Q $(CC) -o $@ devmem.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 	$Q sudo chown root devmem
 	$Q sudo chmod 4755 devmem
+
+button:	button.o
+	$Q echo [link]
+	$Q $(CC) -o $@ button.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$Q sudo chown root button
+	$Q sudo chmod 4755 button
 
 spi: spi.o
 	$Q echo [link]

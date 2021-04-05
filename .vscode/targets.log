@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'i2c.o', needed by 'i2c'.  Stop.
- 
 # GNU Make 4.3
 # Built for aarch64-unknown-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,14 +6,14 @@ make: *** No rule to make target 'i2c.o', needed by 'i2c'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Apr  4 09:20:43 2021
+# Make data base, printed on Mon Apr  5 13:21:47 2021
 
 # Variables
 
 # makefile (from 'Makefile', line 45)
 OBJ = $(SRC:.c=.o)
 # makefile (from 'Makefile', line 43)
-SRC = main.c main2.c gpiomem.c devmem.c spi.c i2c.c
+SRC = main.c main2.c gpiomem.c devmem.c spi.c i2c.c button.c
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -237,9 +235,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 45826, inode 1168886): 22 files, no impossibilities.
+# . (device 45826, inode 1168886): 25 files, no impossibilities.
 
-# 22 files, no impossibilities in 1 directories.
+# 25 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -251,7 +249,7 @@ GDMSESSION = ubuntu
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 88):
 	$Q echo [CC] $<
 	$Q $(CC) -c $(CFLAGS) $< -o $@
 
@@ -259,15 +257,15 @@ depend:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 94):
+#  recipe to execute (from 'Makefile', line 100):
 	makedepend -Y $(SRC)
 
 spi: spi.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-02 20:30:01.670872032
+#  Last modified 2021-04-05 13:17:32.813260908
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 70):
+#  recipe to execute (from 'Makefile', line 76):
 	$Q echo [link]
 	$Q $(CC) -o $@ spi.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 	$Q sudo chown root spi
@@ -276,15 +274,19 @@ spi: spi.o
 # Not a target:
 devmem.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-02 20:30:00.898887949
+#  Last modified 2021-04-05 13:17:32.137273047
 #  File has been updated.
 #  Successfully updated.
 
 i2c: i2c.o
 #  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 76):
+ 
+make: *** No rule to make target 'button.o', needed by 'button'.  Stop.
+ 
+#  Last modified 2021-04-05 13:17:33.269252718
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 82):
 	$Q echo [link]
 	$Q $(CC) -o $@ i2c.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 	$Q sudo chown root i2c
@@ -293,7 +295,7 @@ i2c: i2c.o
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-04 09:20:41.598248854
+#  Last modified 2021-04-05 13:21:46.656667351
 #  File has been updated.
 #  Successfully updated.
 
@@ -307,13 +309,13 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 86):
+#  recipe to execute (from 'Makefile', line 92):
 	$Q echo "[Clean]"
 	$Q rm -f $(OBJ) *~ core tags $(BINS)
 
 gpiomem: gpiomem.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-02 20:30:00.630893475
+#  Last modified 2021-04-05 13:17:31.921276926
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 60):
@@ -329,8 +331,9 @@ devmem.c:
 # Not a target:
 i2c.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2021-04-05 13:17:33.117255448
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 main2.c:
@@ -344,16 +347,22 @@ main2.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: main main2 gpiomem devmem spi i2c
+all: main main2 gpiomem devmem spi i2c button
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
 
 # Not a target:
+button.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 gpiomem.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-02 20:30:00.422897764
+#  Last modified 2021-04-05 13:17:31.741280158
 #  File has been updated.
 #  Successfully updated.
 
@@ -365,23 +374,39 @@ main.c:
 
 main: main.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-02 20:29:59.666913353
+#  Last modified 2021-04-05 13:17:31.133291076
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 52):
 	$Q echo [link]
 	$Q $(CC) -o $@ main.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 
+button: button.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$Q echo [link]
+	$Q $(CC) -o $@ button.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+	$Q sudo chown root button
+	$Q sudo chmod 4755 button
+
 # Not a target:
 main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-02 20:29:59.534916075
+#  Last modified 2021-04-05 13:17:30.925294811
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+button.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
 devmem: devmem.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-02 20:30:01.102883743
+#  Last modified 2021-04-05 13:17:32.337269456
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 64):
@@ -393,13 +418,13 @@ devmem: devmem.o
 # Not a target:
 main2.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-02 20:29:59.894908651
+#  Last modified 2021-04-05 13:17:31.325287628
 #  File has been updated.
 #  Successfully updated.
 
 main2: main2.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-02 20:30:00.13890362
+#  Last modified 2021-04-05 13:17:31.513284252
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 56):
@@ -409,7 +434,7 @@ main2: main2.o
 # Not a target:
 spi.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-02 20:30:01.498875578
+#  Last modified 2021-04-05 13:17:32.63326414
 #  File has been updated.
 #  Successfully updated.
 
@@ -419,11 +444,11 @@ spi.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-tags: main.c main2.c gpiomem.c devmem.c spi.c i2c.c
+tags: main.c main2.c gpiomem.c devmem.c spi.c i2c.c button.c
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 90):
+#  recipe to execute (from 'Makefile', line 96):
 	$Q echo [ctags]
 	$Q ctags $(SRC)
 
@@ -434,19 +459,19 @@ gpiomem.c:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=26/1024=3%, Rehash=0, Collisions=1/61=2%
+# Load=29/1024=3%, Rehash=0, Collisions=1/68=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 33 / storage = 242 B / avg = 7 B
-# current buf: size = 8162 B / used = 242 B / count = 33 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 267 B / avg = 7 B
+# current buf: size = 8162 B / used = 267 B / count = 36 / avg = 7 B
 
-# strcache performance: lookups = 71 / hit rate = 53%
+# strcache performance: lookups = 79 / hit rate = 54%
 # hash-table stats:
-# Load=33/8192=0%, Rehash=0, Collisions=0/71=0%
-# Finished Make data base on Sun Apr  4 09:20:43 2021
+# Load=36/8192=0%, Rehash=0, Collisions=0/79=0%
+# Finished Make data base on Mon Apr  5 13:21:47 2021
 
  
