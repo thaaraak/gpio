@@ -1,9 +1,38 @@
-make all --dry-run --keep-going --print-directory
+make all --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/xenir/gpio'
+echo [CC] main.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   main.c -o main.o
+echo [link]
+cc -o main main.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
+echo [CC] main2.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   main2.c -o main2.o
+echo [link]
+cc -o main2 main2.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
+echo [CC] gpiomem.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   gpiomem.c -o gpiomem.o
+echo [link]
+cc -o gpiomem gpiomem.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
+echo [CC] devmem.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   devmem.c -o devmem.o
+echo [link]
+cc -o devmem devmem.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
+sudo chown root devmem
+sudo chmod 4755 devmem
+echo [CC] spi.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   spi.c -o spi.o
+echo [link]
+cc -o spi spi.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
+sudo chown root spi
+sudo chmod 4755 spi
+echo [CC] i2c.c
+cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   i2c.c -o i2c.o
+echo [link]
+cc -o i2c i2c.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
+sudo chown root i2c
+sudo chmod 4755 i2c
 echo [CC] button.c
 cc -c -g -O0 -Wall -I/usr/local/include -Winline -pipe   button.c -o button.o
 echo [link]
- 
 cc -o button button.o -L/usr/local/lib -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt -lbcm2835 
 sudo chown root button
 sudo chmod 4755 button

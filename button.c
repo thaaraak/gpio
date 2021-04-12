@@ -60,7 +60,7 @@ int main() {
 
     volatile uint32_t* pup = map + GPIO_PUP_PDN_CNTRL_REG1;
     value = 0b01 << ( (pin-16)*2 );
-    mask = 0b111 << ( (pin-16)*2 );
+    mask = 0b11 << ( (pin-16)*2 );
     *pup = (*pup & ~mask) | (value & mask);
 
     volatile uint32_t* buttonval = map + GPLEV0;
@@ -76,7 +76,7 @@ int main() {
             lastval = butval;
         }
 
-        delay(10);
+        delay(1);
     };
 
     return (EXIT_SUCCESS);

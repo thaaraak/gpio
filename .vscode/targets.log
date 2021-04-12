@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  5 13:21:47 2021
+# Make data base, printed on Mon Apr 12 14:23:17 2021
 
 # Variables
 
@@ -19,7 +19,9 @@ GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4811e287-921a-4352-8867-ea94b0c33632.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-2b0f35e5-030b-4387-a306-cbf767ad87c4.sock
+# environment
+VSCODE_CWD = /home/xenir/gpio
 # environment
 WINDOWPATH = 2
 # default
@@ -39,7 +41,7 @@ PWD = /home/xenir/gpio
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-OLDPWD = /home/xenir/gpio/.vscode
+OLDPWD = /home/xenir
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -89,13 +91,13 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 28464
+VSCODE_PID = 43748
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/Snugglebug:@/tmp/.ICE-unix/1663,unix/Snugglebug:/tmp/.ICE-unix/1663
+SESSION_MANAGER = local/Snugglebug:@/tmp/.ICE-unix/1669,unix/Snugglebug:/tmp/.ICE-unix/1669
 # automatic
 *F = $(notdir $*)
 # environment
@@ -125,7 +127,7 @@ GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/bdc54870_4d0d_4740_93c4_45d8d1416d9d
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/66ce9319_d694_4729_90aa_b10da18ceccf
 # environment
 MAKELEVEL := 0
 # default
@@ -175,9 +177,9 @@ MAKE_VERSION := 4.3
 # makefile (from 'Makefile', line 35)
 LDFLAGS = -L/usr/local/lib
 # environment
-SSH_AGENT_PID = 1627
+SSH_AGENT_PID = 1633
 # environment
-VSCODE_NODE_CACHED_DATA_DIR = /home/xenir/.config/Code/CachedData/2b9aebd5354a3629c3aba0a5f5df49f43d6689f8
+VSCODE_NODE_CACHED_DATA_DIR = /home/xenir/.config/Code/CachedData/c185983a683d14c396952dd432459097bc7f757f
 # environment
 _ = /usr/bin/code
 # environment
@@ -199,7 +201,7 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-0514035c-1.54.3-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-0514035c-1.55.0-main.sock
 # environment
 TERM = xterm-256color
 # environment
@@ -227,7 +229,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=108/1024=11%, Rehash=0, Collisions=11/142=8%
+# Load=109/1024=11%, Rehash=0, Collisions=11/143=8%
 
 # Pattern-specific Variable Values
 
@@ -235,9 +237,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 45826, inode 1168886): 25 files, no impossibilities.
+# . (device 45826, inode 1168886): 27 files, no impossibilities.
 
-# 25 files, no impossibilities in 1 directories.
+# 27 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -262,7 +264,7 @@ depend:
 
 spi: spi.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-05 13:17:32.813260908
+#  Last modified 2021-04-11 14:31:43.547459979
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 76):
@@ -274,16 +276,13 @@ spi: spi.o
 # Not a target:
 devmem.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-05 13:17:32.137273047
+#  Last modified 2021-04-06 19:41:14.007004056
 #  File has been updated.
 #  Successfully updated.
 
 i2c: i2c.o
 #  Implicit rule search has not been done.
- 
-make: *** No rule to make target 'button.o', needed by 'button'.  Stop.
- 
-#  Last modified 2021-04-05 13:17:33.269252718
+#  Last modified 2021-04-06 19:41:15.138980269
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 82):
@@ -315,7 +314,7 @@ clean:
 
 gpiomem: gpiomem.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-05 13:17:31.921276926
+#  Last modified 2021-04-06 19:41:13.819008007
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 60):
@@ -331,7 +330,7 @@ devmem.c:
 # Not a target:
 i2c.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-05 13:17:33.117255448
+#  Last modified 2021-04-06 19:41:14.898985312
 #  File has been updated.
 #  Successfully updated.
 
@@ -351,7 +350,8 @@ all: main main2 gpiomem devmem spi i2c button
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 button.c:
@@ -362,7 +362,7 @@ button.c:
 # Not a target:
 gpiomem.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-05 13:17:31.741280158
+#  Last modified 2021-04-06 19:41:13.675011033
 #  File has been updated.
 #  Successfully updated.
 
@@ -374,7 +374,7 @@ main.c:
 
 main: main.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-05 13:17:31.133291076
+#  Last modified 2021-04-06 19:41:13.091023305
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 52):
@@ -383,8 +383,9 @@ main: main.o
 
 button: button.o
 #  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2021-04-06 19:41:15.586970855
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 70):
 	$Q echo [link]
 	$Q $(CC) -o $@ button.o $(LDFLAGS) $(LDLIBS) $(LIBS)
@@ -394,19 +395,20 @@ button: button.o
 # Not a target:
 main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-05 13:17:30.925294811
+#  Last modified 2021-04-06 19:41:12.891027507
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 button.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2021-04-06 19:41:15.406974638
+#  File has been updated.
+#  Successfully updated.
 
 devmem: devmem.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-05 13:17:32.337269456
+#  Last modified 2021-04-06 19:41:14.147001114
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 64):
@@ -418,13 +420,13 @@ devmem: devmem.o
 # Not a target:
 main2.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-05 13:17:31.325287628
+#  Last modified 2021-04-06 19:41:13.347017925
 #  File has been updated.
 #  Successfully updated.
 
 main2: main2.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-05 13:17:31.513284252
+#  Last modified 2021-04-06 19:41:13.531014059
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 56):
@@ -434,7 +436,7 @@ main2: main2.o
 # Not a target:
 spi.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-05 13:17:32.63326414
+#  Last modified 2021-04-11 14:31:43.439461999
 #  File has been updated.
 #  Successfully updated.
 
@@ -469,9 +471,9 @@ gpiomem.c:
 # strcache buffers: 1 (0) / strings = 36 / storage = 267 B / avg = 7 B
 # current buf: size = 8162 B / used = 267 B / count = 36 / avg = 7 B
 
-# strcache performance: lookups = 79 / hit rate = 54%
+# strcache performance: lookups = 81 / hit rate = 55%
 # hash-table stats:
-# Load=36/8192=0%, Rehash=0, Collisions=0/79=0%
-# Finished Make data base on Mon Apr  5 13:21:47 2021
+# Load=36/8192=0%, Rehash=0, Collisions=0/81=0%
+# Finished Make data base on Mon Apr 12 14:23:17 2021
 
  

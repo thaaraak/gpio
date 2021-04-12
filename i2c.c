@@ -144,8 +144,8 @@ int main(int argc, char **argv) {
 
     for ( int i = 0 ; i < 5000 ; i++)
 
-        readADC(0);
-//        printf( "Res: %8d\n", readADC(0) );
+        //readADC(0);
+        printf( "Res: %8d\n", readADC(0) );
 
     bcm2835_i2c_end();   
     bcm2835_close();

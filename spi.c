@@ -58,7 +58,7 @@ int main(int argc, char **argv)
     }
     bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // The default
     bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);                   // The default
-    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_1024); // The default
+    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_2048); // The default
     bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
     bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // the default
 
@@ -72,6 +72,7 @@ int main(int argc, char **argv)
     
     write( 1, 0b11111111 );
 	write( 2, 0b11111111 );
+		  write( 0x0a, 13 );
 
 //for (;;)
 	  for ( int i = 0 ; i < 128 ; i++ ) {

@@ -29,6 +29,11 @@
             "cwd": "/home/xenir/gpio",
             "binaryPath": "/home/xenir/gpio/i2c",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/home/xenir/gpio",
+            "binaryPath": "/home/xenir/gpio/button",
+            "binaryArgs": []
         }
     ],
     "files.associations": {
