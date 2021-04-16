@@ -66,7 +66,6 @@ int main(int argc, char** argv)
     if (map == MAP_FAILED)
         printf("mmap failed: %s\n", strerror(errno));    
     close(memfd);
-    
 
     volatile uint32_t* paddr = map + GPFSEL1;
 
