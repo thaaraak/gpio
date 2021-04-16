@@ -64,7 +64,7 @@ int main(int argc, char** argv)
                         memfd, 
                         0xfe200000);
     if (map == MAP_FAILED)
-        printf("bcm2835_init: mmap failed: %s\n", strerror(errno));    
+        printf("mmap failed: %s\n", strerror(errno));    
     close(memfd);
     
 

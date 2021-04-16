@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Apr 14 20:00:41 2021
+# Make data base, printed on Fri Apr 16 09:30:38 2021
 
 # Variables
 
@@ -71,7 +71,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-87786cc6-7510-4646-b25a-a00ac26cc0df.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-bc4b3414-fc02-4ced-a181-e40e0725808c.sock
 # environment
 XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 # default
@@ -171,7 +171,7 @@ SAL_USE_VCLPLUGIN = gtk3
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/pi
+OLDPWD = /home/pi/util
 # default
 .VARIABLES := 
 # makefile (from 'Makefile', line 47)
@@ -223,7 +223,7 @@ LANG = en_US.UTF-8
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 4510
+VSCODE_PID = 11939
 # variable set hash-table stats:
 # Load=107/1024=10%, Rehash=0, Collisions=13/136=10%
 
@@ -233,9 +233,9 @@ VSCODE_PID = 4510
 
 # Directories
 
-# . (device 45826, inode 2215061): 27 files, no impossibilities.
+# . (device 45826, inode 2215061): 28 files, no impossibilities.
 
-# 27 files, no impossibilities in 1 directories.
+# 28 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -303,6 +303,7 @@ i2c.c:
 #  File has not been updated.
 
 tags: main.c main2.c gpiomem.c devmem.c spi.c i2c.c button.c
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -434,7 +435,7 @@ i2c.o:
 
 devmem: devmem.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-04-14 19:59:00.105527016
+#  Last modified 2021-04-15 19:26:13.782569704
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 64):
@@ -446,7 +447,7 @@ devmem: devmem.o
 # Not a target:
 devmem.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-04-14 19:59:00.005528377
+#  Last modified 2021-04-15 19:26:13.622571853
 #  File has been updated.
 #  Successfully updated.
 
@@ -464,12 +465,12 @@ gpiomem.c:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 36 / storage = 267 B / avg = 7 B
-# current buf: size = 8174 B / used = 267 B / count = 36 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 37 / storage = 271 B / avg = 7 B
+# current buf: size = 8174 B / used = 271 B / count = 37 / avg = 7 B
 
-# strcache performance: lookups = 81 / hit rate = 55%
+# strcache performance: lookups = 82 / hit rate = 54%
 # hash-table stats:
-# Load=36/8192=0%, Rehash=0, Collisions=1/81=1%
-# Finished Make data base on Wed Apr 14 20:00:42 2021
+# Load=37/8192=0%, Rehash=0, Collisions=1/82=1%
+# Finished Make data base on Fri Apr 16 09:30:38 2021
 
  
