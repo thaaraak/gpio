@@ -30,6 +30,26 @@ void delay (unsigned int howLong)
   nanosleep (&sleeper, &dummy) ;
 }
 
+void delayusec (unsigned int howLong)
+{
+  struct timespec sleeper, dummy ;
+
+  sleeper.tv_sec  = (time_t)(howLong / 1000000) ;
+  sleeper.tv_nsec = (long)(howLong % 1000000) * 1000 ;
+
+  nanosleep (&sleeper, &dummy) ;
+}
+
+void delaynsec (unsigned int howLong)
+{
+  struct timespec sleeper, dummy ;
+
+  sleeper.tv_sec  = (time_t)(howLong / 1000000000) ;
+  sleeper.tv_nsec = (long)(howLong % 1000000000) ;
+
+  nanosleep (&sleeper, &dummy) ;
+}
+
 int main(int argc, char** argv) 
 {
     int pin = 18;
@@ -65,9 +85,9 @@ int main(int argc, char** argv)
     for(;;)
     {
         *paddr1= 1 << pin;
-        delay(40);
+        delay(100);
         *paddr2= 1 << pin;
-        delay(40);
+        delay(100);
     };
 
     return (EXIT_SUCCESS);

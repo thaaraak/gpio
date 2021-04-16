@@ -34,11 +34,19 @@
             "cwd": "/home/xenir/gpio",
             "binaryPath": "/home/xenir/gpio/button",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/home/pi/gpio",
+            "binaryPath": "/home/pi/gpio/devmem",
+            "binaryArgs": []
         }
     ],
     "files.associations": {
         "stdio.h": "c",
         "types.h": "c",
         "stddef.h": "c"
+    },
+    "makefile.defaultLaunchConfiguration": {
+        "miDebuggerPath": "/home/pi/gpio"
     }
 }
