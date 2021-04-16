@@ -1,4 +1,5 @@
 *.o
+*.log
 main
 main2
 gpiomem
