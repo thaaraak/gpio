@@ -69,6 +69,7 @@ int main(int argc, char** argv)
 
     volatile uint32_t* paddr = map + GPFSEL1;
 
+
     int value = 0b001 << ( (pin-10)*3 );
     int mask = 0b111 << ( (pin-10)*3 );
     *paddr = (*paddr & ~mask) | (value & mask);
