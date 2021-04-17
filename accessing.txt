@@ -1,0 +1,13 @@
+
+
+Memory access + mmap
+	/dev/mem	(requires root)
+	/dev/gpiomem	(requires permissions)
+
+GPIO Device + ioctl
+	/dev/gpiochip0
+
+Peripheral Device + ioctl
+	/dev/i2c-0
+	/dev/spi-0
+

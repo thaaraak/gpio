@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <bcm2835.h>
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
+#include <stdint.h>
 
 #define GPFSEL0 0
 #define GPFSEL1 1
@@ -82,12 +82,18 @@ int main(int argc, char** argv)
     volatile uint32_t* paddr1 = map + 0x1C/4;
     volatile uint32_t* paddr2 = map + 0x28/4;
 
+    volatile int i;
+
     for(;;)
     {
         *paddr1= 1 << pin;
-        delay(100);
+        //
+        delay(1000);
+        for ( i = 0 ; i < 300 ; i++ );
+
         *paddr2= 1 << pin;
-        delay(100);
+        delay(1000);
+        for ( i = 0 ; i < 300 ; i++ );
     };
 
     return (EXIT_SUCCESS);
