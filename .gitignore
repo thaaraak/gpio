@@ -4,3 +4,6 @@ main
 main2
 gpiomem
 spi
+button
+devmem
+i2c
