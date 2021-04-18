@@ -40,7 +40,7 @@ LIBS = /home/pi/bcm/bcm2835-1.60/src/libbcm2835.a
 # Should not alter anything below this line
 ###############################################################################
 
-SRC	=	main.c main2.c gpiomem.c devmem.c spi.c i2c.c button.c
+SRC	=	main.c main2.c gpiomem.c devmem.c spi.c i2c.c button.c serial.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -67,6 +67,10 @@ devmem:	devmem.o
 button:	button.o
 	$Q echo [link]
 	$Q $(CC) -o $@ button.o $(LDFLAGS) $(LDLIBS) $(LIBS)
+
+serial: serial.o
+	$Q echo [link]
+	$Q $(CC) -o $@ serial.o $(LDFLAGS) $(LDLIBS) $(LIBS)
 
 spi: spi.o
 	$Q echo [link]

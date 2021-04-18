@@ -7,3 +7,4 @@ spi
 button
 devmem
 i2c
+serial
