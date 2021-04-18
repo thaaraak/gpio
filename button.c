@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <bcm2835.h>
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
+#include <stdint.h>
 
 #define GPFSEL0 0
 #define GPFSEL1 1
@@ -48,7 +48,7 @@ int main() {
                         memfd, 
                         0xfe200000);
     if (map == MAP_FAILED)
-        printf("bcm2835_init: mmap failed: %s\n", strerror(errno));    
+        printf("mmap failed: %s\n", strerror(errno));    
     close(memfd);
     
 

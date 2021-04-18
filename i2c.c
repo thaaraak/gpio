@@ -125,6 +125,16 @@ int16_t readADC(uint8_t channel);
 bool conversionComplete();
 int16_t getLastConversionResults();
 
+void delayMillis (unsigned int howLong)
+{
+  struct timespec sleeper, dummy ;
+
+  sleeper.tv_sec  = (time_t)(howLong / 1000) ;
+  sleeper.tv_nsec = (long)(howLong % 1000) * 1000000 ;
+
+  nanosleep (&sleeper, &dummy) ;
+}
+
 int main(int argc, char **argv) {
  
     if (!bcm2835_init())
@@ -143,9 +153,10 @@ int main(int argc, char **argv) {
     bcm2835_i2c_set_baudrate(800000);
 
     for ( int i = 0 ; i < 5000 ; i++)
-
-        //readADC(0);
+    {
         printf( "Res: %8d\n", readADC(0) );
+        //delayMillis(200);
+    }
 
     bcm2835_i2c_end();   
     bcm2835_close();

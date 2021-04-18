@@ -62,38 +62,35 @@ int main(int argc, char **argv)
     bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
     bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // the default
 
+  // Number of Digits display (Register 0x0B)
     write( 0x0b, 7 );
+
+  // Decode mode (Register 0x09)
     write( 0x09, 0 );
+
+  // Turn off Shutdown mode (Register 0x0C)
     write( 0x0c, 1 );
- 
+
+  // Test mode on for 1 second
     write( 0x0f, 1 );
     delayMillis(1000);
     write( 0x0f, 0 );
     
-    write( 1, 0b11111111 );
-	write( 2, 0b11111111 );
-		  write( 0x0a, 13 );
+  // Set brightness
+		write( 0x0a, 0 );
 
-//for (;;)
-	  for ( int i = 0 ; i < 128 ; i++ ) {
-          for ( int j = 1 ; j <= 8 ; j++ ) {
-		  write( j, i );
-     
+    for ( int bright = 0 ; bright < 16 ; bright++)
+    {
+   		write( 0x0a, bright );
+  	  for ( int i = 0 ; i < 128 ; i++ ) 
+      {
+          for ( int j = 1 ; j <= 8 ; j++ ) 
+          {
+	      	  write( j, i );
           }
-		  delayMillis(40);
-         	  }
-
-        /*
-	  for ( int i = 0 ; i < 16 ; i++ ) {
-		  write( 0x0a, i );
-		  delayMillis(50);
-	  }
-
-	  for ( int i = 15 ; i >= 0 ; i-- ) {
-		  write( 0x0a, i );
-		  delayMillis(50);
-	  }
-      */
+  		    delayMillis(3);
+      }
+    }
 
     write( 0x0c, 0 );
 
