@@ -23,7 +23,6 @@
 #define GPIO_PUP_PDN_CNTRL_REG2 (0xec/4)
 #define GPIO_PUP_PDN_CNTRL_REG3 (0xf0/4)
 
-
 void delay (unsigned int howLong)
 {
   struct timespec sleeper, dummy ;
