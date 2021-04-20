@@ -35,7 +35,7 @@ CFLAGS	= $(DEBUG) -Wall $(INCLUDE) -Winline -pipe $(EXTRA_CFLAGS)
 LDFLAGS	= -L/usr/local/lib
 LDLIBS    = -lwiringPi -lwiringPiDev -lpthread -lm -lcrypt -lrt
 
-LIBS = /home/pi/bcm/bcm2835-1.60/src/libbcm2835.a
+LIBS = /home/pi/bcm/bcm2835-1.68/src/libbcm2835.a
 
 # Should not alter anything below this line
 ###############################################################################
