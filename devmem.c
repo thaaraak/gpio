@@ -8,7 +8,6 @@
 #include <time.h>
 #include <stdint.h>
 
-
 #define GPFSEL0 0
 #define GPFSEL1 1
 #define GPFSEL2 2
